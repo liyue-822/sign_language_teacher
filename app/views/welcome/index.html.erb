@@ -1,0 +1,87 @@
+<body style="background: antiquewhite;">
+  <div class="home-banner"  >
+    <div class="banner-inner container clearfix">
+      <div class="home-banner-links">
+        <%= link_to "手语教学", "/teach/new", class: "banner-btn btn" %>
+      </div>
+      <div class="home-banner-links" style="left: 100px;top: 100px;">
+        <%= link_to "手语考试", "https://detect.roboflow.com/?model=sign_language_letters&version=1&api_key=EWxsIzLDTBVeWBP8KHMa", class: "banner-btn btn" %>
+      </div>
+      <div class="home-banner-links" style="left: 350px;top: 150px;">
+        <%= link_to "交流天地", "/posts/new", class: "banner-btn btn" %>
+      </div>
+      <div class="home-banner-introduce" style="left: 550px;top: 150px;height: 300px;width: 300px;background: mistyrose " >
+        <h1 align="center">手语大世界</h1>
+        <div style="height: 30px">
+        </div>
+        <h6 align="center" >在交流天地，可以找到一些有趣的朋友交流学习手语上的问题哦~</h6>
+        <div style="height: 30px">
+        </div>
+        <h6 align="center">在手语教学，我们在那里准备了储量丰富的手语教学视频哦~</h6>
+        <div style="height: 30px">
+        </div>
+        <h6 align="center">在手语考试，学习过后不要忘记去检验一下学习成果哦~</h6>
+      </div>
+    </div>
+  </div>
+  <div class="issue-list-header">
+    <div class="container clearfix">
+      <h1 class="issue-list-heading"></h1>
+    </div>
+  </div>
+  <div style="height: 40px;background: lightpink">
+    <h4 align="center">交流天地</h4>
+  </div>
+  <div class="container clearfix">
+    <div class="issue-list">
+      <% @posts.each do |p| %>
+        <article class="issue clearfix">
+          <div class="avatar body">
+            <!-- 获取发帖用户的名字，get_account_name是在post.rb文件中定义的实例方法 -->
+            <a class="read-more" href="#"><%= 1 %></a>
+            <!-- 获取发帖的时间 -->
+            <p class="time"><%= 2022-12-10 %></p>
+          </div>
+          <div class="body">
+            <% if p.as_type == 2 %>
+              <div class="icon-top" title="置顶">置顶</div>
+            <% elsif p.as_type == 1 %>
+              <div class="icon-good" title="精">精</div>
+            <% end %>
+            <h5 class="title">
+              <%= link_to "#{p.head}", "#" %>
+            </h5>
+            <a class="as_sb" href="#"><%= p.body %></a>
+          </div>
+          <div class="issue-comment-count">
+            <a data-remote="true"><i class="fa fa-comment-o" style="padding-right: 15px;">
+               <!--获取评论数，方法还没完善，先设为1-->
+              <%#= "#{3}" %>
+            </i></a>
+            <!-- 先判断当前是否有用户登录，再判断用户是否为此帖子点过赞 -->
+<!--            <%# if @current_user && p.get_thumb_info(@current_user.id) %>
+              <a data-remote="true" href="#" id="reduce" class="fa fa-thumbs-up">
+                <%#= "#{p.get_thumbs}"%>
+              </a>
+            <%#elsif @current_user%>
+              <a data-remote="true" href="#" id="increase" class="fa fa-thumbs-o-up">
+                <%#= "#{p.get_thumbs}"%>
+              </a>-->
+              <!-- 没有账户登录时的情况 -->
+            <%# else %>
+              <a data-remote="true" href="#" class="fa fa-thumbs-o-up" onclick="alert('您还未登录，请先登录')">
+                <%#= "#{p.get_thumbs}"%>
+              </a>
+            <%## end %>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </div>
+
+</body>
+
+
+
+
+

@@ -1,0 +1,95 @@
+/*h2标题*/
+.title{
+  font-family: 楷体;
+  color: white;
+  display: block;
+  background-color: #ec6e47;
+  margin-top: 20px;
+  margin-left: 117px;
+  width: 275px;
+  height: 50px;
+  line-height: 50px;
+}
+/*总体*/
+.current{
+  height: 1000px;
+  width: 930px;
+  background-color: #FCF;
+  padding: 10px 36px 5px;
+  position: relative;
+  margin: 0 auto;
+}
+/*第一个div*/
+.current .sale{
+  margin: 20px 8px 0px;
+  width: 260px;
+  height: 380px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid darkorange;
+  float: left;
+}
+.current img{
+  width: 253px;
+  height: 278px;
+}
+/*价格*/
+.current .price{
+  color: red;
+  font-weight: bold;
+}
+/*介绍*/
+.current .introduce{
+  color: deepskyblue;
+  font-weight: normal;
+  text-decoration: none;
+  font-family: 汉仪柳楷繁;
+  display: block;
+  margin: 10px auto;
+}
+/*销售量*/
+.current .salemount{
+  float: left;
+  height: 20px;
+  font-size: smaller;
+  width: 120px;
+  border-right:#CCC solid 1px;
+  line-height: 20px;
+  margin-bottom: 6px;
+  margin-left: 10px;
+}
+/*评价*/
+.current .rate{
+  float: left;
+  color: darkorange;
+  height: 20px;
+  line-height: 20px;
+  font-size:18px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.current .buy{
+  clear: both;
+  height: 40px;
+  line-height: 20px;
+  width: 145px;
+  text-align: center;
+  padding: 5px 0px;
+  margin: 0px auto;
+  background-color: darkorange;
+  border-radius: 30px;
+  border: 2px solid red;
+}
+.current .buy a{
+  color: white;
+  text-decoration: none;
+}
+.current .buy:hover{
+  background-color:coral;
+  font-size:large;
+  cursor:pointer;
+}
+.current .introduce:hover{
+  text-decoration: underline;
+}
+

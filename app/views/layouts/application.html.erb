@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--说明这是一份HTML5文件，向下相容于所有浏览器的HTML4。-->
+<!--整个项目视图模板文件-->
+<!--application.html.erb文件是控制页面总体样式的文件，
+比如在每个页面都需要显示的网站头部和尾部、flash提示、js css文件加载等等，
+都在此文件定义。-->
+<html>
+<head>
+  <title>手语教学网站</title>
+<!--  代表网站标签显示的名称-->
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <!--  有等号代表要输出-->
+<!--  之后有外来的css文件，我们也在这里加载-->
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+ <!-- 加载app/assets/javascripts/application.js文件，之后有外来的js文件，我们也在这里加载-->
+  <%= csrf_meta_tags %>
+<!--  防止CSRF攻击-->
+</head>
+  <body>
+    <header name="top">
+    <!--    <nav> 标签定义导航链接的部分。-->
+        <div class="navbar clearfix">
+          <div class="container">
+            <a class="navbar-brand" href="/">手语之家</a>
+            <ul class="nav right">
+              <li><%= link_to "登录","/login" %></li>
+              <li><%= link_to "注册","/signup" %></li>
+            </ul>
+          </div>
+        </div>
+        <!-- /.container-->
+
+    </header>
+ <!--   <div class="home-banner" <%#= image_url '/assets/index.jpg' %>>
+      <div class="banner-inner container clearfix">
+        <div class="home-banner-links">
+          <%#= link_to "手语教学", "#", class: "banner-btn btn" %>
+        </div>
+        <div class="home-banner-links" style="left: 100px;top: 100px;">
+          <%#= link_to "手语考试", "#", class: "banner-btn btn" %>
+        </div>
+        <div class="home-banner-links" style="left: 350px;top: 150px;">
+          <%#= link_to "交流天地", "#", class: "banner-btn btn" %>
+        </div>
+      </div>
+    </div>-->
+    <div class="issue-list-header">
+      <div class="container clearfix">
+        <h1 class="issue-list-heading"></h1>
+      </div>
+    </div>
+
+
+
+    <div class="container body-offset">
+    <% if flash[:notice] %>
+      <!--    没有等号，不用输出，逻辑判断-->
+      <div class="alert alert-info"><%= flash[:notice] %></div>
+    <% end -%>
+
+    <%= yield %>
+
+    </div>
+    <% if flash.notice %>
+      <div class="notice"><%= flash.notice %></div>
+    <% end %>
+    <div class="footer">
+      <div>
+        <p class="align">©版权所属©  手语之家</p>
+      </div>
+    </div>
+    <script>
+        var hideNotice = function(){
+            $(".notice").fadeOut("slow");
+        }
+        setTimeout(hideNotice, 2000);
+    </script>
+
+  </body>
+</html>
